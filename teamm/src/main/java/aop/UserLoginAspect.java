@@ -27,7 +27,7 @@ public class UserLoginAspect {
 		System.out.println("userLoginCheck");
 		User loginUser =(User)session.getAttribute("loginUser");
 		if(loginUser == null) {
-			throw new LoginException("[userlogin]로그인 후 거래하세요","login.shop");
+			throw new LoginException("[userlogin]로그인 후 거래하세요","login.shop"); 
 		}
 		return joinPoint.proceed();
 	}
