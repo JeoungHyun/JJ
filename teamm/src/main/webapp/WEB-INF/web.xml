@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
-xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" 
-id="WebApp_ID" version="4.0">
-  <display-name>teamm</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>project</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -13,20 +10,20 @@ id="WebApp_ID" version="4.0">
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-  	<servlet-name>teamm</servlet-name>
-  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> 
+  	<servlet-name>project</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
   	<init-param>
-  		<param-name>contextConfigLocation</param-name>
-  		<param-value>
-  			classpath:spring-mvc.xml
-  			classpath:spring-db.xml
-  		</param-value>
+ 		<param-name>contextConfigLocation</param-name>
+ 		<param-value>
+ 		classpath:spring-mvcAnnotation.xml
+ 		classpath:spring-db.xml
+ 		</param-value>
   	</init-param>
   	<load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>teamm</servlet-name>
-  	<url-pattern>*.shop</url-pattern>
+  		<servlet-name>project</servlet-name>
+  		<url-pattern>*.dev</url-pattern>
   </servlet-mapping>
   <filter>
   	<filter-name>CharacterEncoding</filter-name>
@@ -40,5 +37,15 @@ id="WebApp_ID" version="4.0">
   	<filter-name>CharacterEncoding</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
-
+  
+   <!-- sitemesh 관련 설정 : /WEB-INF/sitemesh.xml 파일 필요 -->
+  <filter>
+  <filter-name>sitemesh</filter-name>
+  <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  <filter-name>sitemesh</filter-name>
+  <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
 </web-app>
